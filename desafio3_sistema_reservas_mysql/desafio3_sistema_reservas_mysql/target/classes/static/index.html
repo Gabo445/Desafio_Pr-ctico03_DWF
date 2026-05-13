@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Reservas de Eventos</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="header">
+    <div>
+        <h1>Sistema de Reservas de Eventos</h1>
+        <p>Frontend HTML, CSS y JavaScript puro consumiendo API Spring Boot con JWT</p>
+    </div>
+    <button id="btnLogout" class="btn danger hidden">Cerrar sesión</button>
+</header>
+
+<main class="container">
+    <section id="message" class="message hidden"></section>
+
+    <section id="authSection" class="grid two">
+        <article class="card">
+            <h2>Iniciar sesión</h2>
+            <label>Usuario</label>
+            <input id="loginUsername" type="text" placeholder="gabriel">
+            <label>Contraseña</label>
+            <input id="loginPassword" type="password" placeholder="123456">
+            <button id="btnLogin" class="btn primary">Entrar</button>
+            <p class="hint">Usuario de prueba: <b>gabriel</b> / <b>123456</b></p>
+        </article>
+
+        <article class="card">
+            <h2>Registro</h2>
+            <label>Usuario</label>
+            <input id="registerUsername" type="text" placeholder="nuevo_usuario">
+            <label>Contraseña</label>
+            <input id="registerPassword" type="password" placeholder="mínimo recomendado 6 caracteres">
+            <label>Nombres</label>
+            <input id="registerFirstname" type="text" placeholder="Gabriel">
+            <label>Apellidos</label>
+            <input id="registerLastname" type="text" placeholder="Echegoyen">
+            <label>Edad</label>
+            <input id="registerAge" type="number" placeholder="20">
+            <button id="btnRegister" class="btn secondary">Registrarme</button>
+        </article>
+    </section>
+
+    <section id="appSection" class="hidden">
+        <div class="tabs">
+            <button class="tab active" data-view="eventsView">Eventos disponibles</button>
+            <button class="tab" data-view="createEventView">Crear evento</button>
+            <button class="tab" data-view="bookingsView">Mis reservas</button>
+        </div>
+
+        <section id="eventsView" class="view">
+            <div class="sectionTitle">
+                <h2>Eventos disponibles</h2>
+                <button id="btnLoadEvents" class="btn secondary">Actualizar</button>
+            </div>
+            <div id="eventsList" class="cards"></div>
+        </section>
+
+        <section id="createEventView" class="view hidden">
+            <article class="card">
+                <h2>Crear nuevo evento</h2>
+                <label>Título</label>
+                <input id="eventTitle" type="text" placeholder="Nombre del evento">
+                <label>Descripción</label>
+                <textarea id="eventDescription" placeholder="Descripción del evento"></textarea>
+                <label>Fecha y hora</label>
+                <input id="eventDate" type="datetime-local">
+                <label>Lugar</label>
+                <input id="eventVenue" type="text" placeholder="Auditorio">
+                <label>Capacidad</label>
+                <input id="eventCapacity" type="number" min="1" placeholder="100">
+                <label>Precio por entrada</label>
+                <input id="eventPrice" type="number" min="0" step="0.01" placeholder="5.00">
+                <button id="btnCreateEvent" class="btn primary">Guardar evento</button>
+            </article>
+        </section>
+
+        <section id="bookingsView" class="view hidden">
+            <div class="sectionTitle">
+                <h2>Mis reservas</h2>
+                <button id="btnLoadBookings" class="btn secondary">Actualizar</button>
+            </div>
+            <div id="bookingsList" class="cards"></div>
+        </section>
+    </section>
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>
